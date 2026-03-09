@@ -1,0 +1,47 @@
+
+body{
+    background-color:darkslategray;
+}
+
+h3 {
+    color:white
+}
+
+h4 {
+    color:grey
+}
+
+p{
+    color:lightgray
+}
+
+li {
+    color:lightgray
+}
+
+a:visited {
+    color:black
+}
+
+a:hover {
+    color:rgb(26, 25, 25)
+}
+
+span {
+    text-align: center;
+    color:black;
+    text-decoration: none;
+}
+
+.greyLink {
+    color: lightgray;
+    text-decoration: none;
+}
+
+#greyLink:visited {
+    color: lightgray;
+}
+
+.bgImage {
+    background-image: url("https://wallpaperaccess.com/full/218831.jpg");
+}
