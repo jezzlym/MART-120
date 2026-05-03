@@ -1,19 +1,15 @@
-//circle variables
-var x = 50;
-var y = 50;
-//mouse obstacle variables
-var x1 = 50;
-var y1 = 50;
+
 //key binding variables
 var s = 83;
 var w = 87;
 var a = 65;
 var d = 68;
 //enemy variables
-var enemyX = 30;
-var enemyY = 50;
 var enemyXspeed;
 var enemyYspeed;
+//varibles array
+var myX = [50,50,30];
+var myY = [50,50,50];
 
 function setup() {
   createCanvas(400, 400);
@@ -52,25 +48,25 @@ function draw() {
 function makePlayer() {
   noStroke();
   fill(255, 255, 100);
-  circle(x, y, 50);
+  circle(myX[0], myY[0], 50);
 }
 
 //ghost 2 create function
 function ghostCreate() {
   noStroke();
   fill(255, 255, 255);
-  circle(x1, y1, 50);
+  circle(myX[1], myY[1], 50);
 }
 
 //ghost 2 onclick
 function mousePressed() {
-  x1 = mouseX;
-  y1 = mouseY;
+  myX[1] = mouseX;
+  myY[1] = mouseY;
 }
 
 //winning function
 function winner() {
-  if (x >= 365 && y <= 70) {
+  if (myX[0] >= 365 && myY[0] <= 70) {
     textSize(40);
     fill(0, 255, 0);
     text('WINNER WINNER', 50, 200);
@@ -81,16 +77,16 @@ function winner() {
 //circle movement
 function movement() {
   if (keyIsDown(d)) {
-    x += 5;
+    myX[0] += 5;
   }
   else if (keyIsDown(a)) {
-    x -= 5;
+    myX[0] -= 5;
   }
   else if (keyIsDown(w)) {
-    y -= 5;
+    myY[0] -= 5;
   }
   else if (keyIsDown(s)) {
-    y += 5;
+    myY[0] += 5;
   }
 }
 
@@ -106,9 +102,9 @@ function drawObstacle() {
 function drawEnemy() {
   noStroke();
   fill(255, 0, 0);
-  circle(enemyX, enemyY, 50);
-  enemyX += enemyXspeed;
-  enemyY += enemyYspeed;
+  circle(myX[2], myY[2], 50);
+  myX[2] += enemyXspeed;
+  myY[2] += enemyYspeed;
 }
 
 
@@ -133,17 +129,17 @@ function drawBorders(thickness) {
 }
 
 function checkBounds() {
-  if (enemyX > height) {
-    enemyX = 0;
+  if (myX[2] > height) {
+    myX[2] = 0;
   }
-  if (enemyX < 0) {
-    enemyX = height;
+  if (myX[2] < 0) {
+    myX[2] = height;
   }
-  if (enemyY > width) {
-    enemyY = 0;
+  if (myY[2] > width) {
+    myY[2] = 0;
   }
-  if (enemyY < 0) {
-    enemyY = width;
+  if (myY[2] < 0) {
+    myY[2] = width;
   }
 }
 
